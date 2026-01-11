@@ -23,8 +23,9 @@ def main():
                 return
 
         screen.fill('black')
+        # Check if player moved before render
+        player.update(dt)
         player.draw(screen)
-
 
         # ===================== Last Lines Always ==========================
         # refreshes screen
