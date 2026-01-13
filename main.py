@@ -9,6 +9,12 @@ def main():
     print('Screen width:', SCREEN_WIDTH)
     print('Screen height:', SCREEN_HEIGHT)
 
+    #Groups
+    updatable = pygame.sprite.Group()
+    drawable = pygame.sprite.Group()
+
+    Player.containers = (updatable, drawable)
+
     pygame.init()
     screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
     clock = pygame.time.Clock()
@@ -23,9 +29,16 @@ def main():
                 return
 
         screen.fill('black')
-        # Check if player moved before render
-        player.update(dt)
-        player.draw(screen)
+        # Other way of updating:
+        updatable.update(dt)
+        # drawable.draw(screen)
+
+        # for item in updateable:
+        #     item.update(dt)
+
+        for item in drawable:
+            item.draw(screen)
+
 
         # ===================== Last Lines Always ==========================
         # refreshes screen
