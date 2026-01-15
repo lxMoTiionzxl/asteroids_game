@@ -2,6 +2,7 @@
 .python-version
 uv.lock
 game_state.jsonl
+game_events.jsonl
 
 # Python-generated files
 __pycache__/
